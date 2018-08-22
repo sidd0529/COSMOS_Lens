@@ -31,6 +31,7 @@ The potential map obtained from the aforementioned convergence map is shown belo
  
  ```
  $ python setup.py build_ext --inplace
+ $ python cosmos_runme.py
  ```
  
  ## Where can you get help with this project?
