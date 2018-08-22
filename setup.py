@@ -27,7 +27,7 @@ else:
 ''' Check if folder 'build' exists :
 https://stackoverflow.com/questions/8933237/how-to-find-if-directory-exists-in-python '''
 
-''' Remove folder:
+''' Remove 'build' folder:
  https://stackoverflow.com/questions/303200/how-do-i-remove-delete-a-folder-that-is-not-empty-with-python '''
 
 if( not os.path.isdir("build") ): 

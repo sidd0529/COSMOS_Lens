@@ -90,12 +90,10 @@ def cosmo_cythonize():
     if angg=='deg':
         RA = tbdata['ALPHA_J2000']              #RA in degrees
         Dec = tbdata['DELTA_J2000']             #Dec in degrees
-        ang_conv = (np.pi/180)                  #Convert angles from degrees to radians (for use in numpy)
 
     if angg=='rad':
         RA = tbdata['ALPHA_J2000']*(np.pi/180)  #RA in radians
         Dec = tbdata['DELTA_J2000']*(np.pi/180) #Dec in radians
-        ang_conv = 1                            #Convert angles from radians to radians (for use in numpy)
 
     flag = tbdata['FLAG_COSMOS']                #FLAG_COSMOS = 1 or 0. FLAG_COSMOS = 1: 2deg2 COSMOS area. 
     obj_type = tbdata['TYPE']                   #TYPE = 0 for galaxy; TYPE = 1 for star; TYPE = 2 for XRay source; TYPE = -9 for failure in fit.
@@ -108,10 +106,6 @@ def cosmo_cythonize():
     RA_gal_init = RA[mark_gal]                  #RA of galaxies outside of masked area
     Dec_gal_init = Dec[mark_gal]                #Dec of galaxies outside of masked area
     photoz_gal_init = photoz[mark_gal]          #Photometric redshift of galaxies outside of masked area
-
-    #RA_gal = RA[mark_gal]                       #RA of galaxies outside of masked area
-    #Dec_gal = Dec[mark_gal]                     #Dec of galaxies outside of masked area
-    #photoz_gal = photoz[mark_gal]               #Photometric redshift of galaxies outside of masked area
 
 
     ''' The following exercise (saving and importing of essential arrays) is done to ensure better accuracy (higher decimal) 
@@ -252,7 +246,7 @@ def cosmo_cythonize():
     #plt.show()
 
 
-    rhoz_smooth = rhoz_gsmooth  #rhoz_gsmooth  #rho_z                #Choose which smoothed rhoz to use
+    rhoz_smooth = rhoz_gsmooth  #rhoz_gsmooth or rho_z                #Choose which smoothed rhoz to use
 
 
     #----------------------------- Histogram2D (RA,Dec bins) ---------------------------------------------------
@@ -317,7 +311,6 @@ def cosmo_cythonize():
     cdef np.ndarray[np.double_t, ndim=2] Kappa = np.zeros( [bin_num_RA , bin_num_Dec], dtype=np.float64)   
     cdef np.ndarray[np.double_t, ndim=2] Kappa_holefill = np.zeros( [bin_num_RA , bin_num_Dec], dtype=np.float64)      
 
-    #Kappa = np.empty([bin_num_RA, bin_num_Dec])
     for i in range(0,bin_num_RA):
         for j in range(0,bin_num_Dec):
             arr = np.empty( len(photoz_lim) )
