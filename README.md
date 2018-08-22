@@ -17,6 +17,7 @@ The potential map obtained from the aforementioned convergence map is shown belo
  ## How to get started with this project?
  ```
  $ git clone https://github.com/sidd0529/COSMOS_Lens.git
+ $ cd COSMOS_Lens
  ```
  
  Download COSMOS2015 data from: ``` ftp://ftp.iap.fr/pub/from_users/hjmcc/COSMOS2015/ ```
