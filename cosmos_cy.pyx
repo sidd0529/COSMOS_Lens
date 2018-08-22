@@ -33,7 +33,7 @@ from galaxy_bias import bias_Amara     #galaxy-dark matter bias
 
 # -------------------------------- Header/ metadata --------------------------------------------------------
 __author__ = "Siddharth Satpathy"
-__date__ = "21 August 2018"
+__date__ = "22 August 2018"
 __version__ = "5.0.0"
 __email__ = "siddharthsatpathy.ss@gmail.com"
 __status__ = "Complete"
@@ -84,7 +84,7 @@ def cosmo_cythonize():
     tbdata = File[1].data
 
 
-    #----------------------------- Get cosmological parameters -------------------------------------------------
+    #----------------------------- Analyze cosmological data ---------------------------------------------------
     angg = 'deg' #Choose angg ='rad' to have RA, Dec in radians; choose angg ='deg' to have RA, Dec in degrees. 
 
     if angg=='deg':
@@ -201,7 +201,7 @@ def cosmo_cythonize():
 
     rhoz_savitzky = savgol_filter(rho_z, 51, 3) # window size 51, polynomial order 3
 
-    '''4.> Gaussian Smoothing (inefficient hand-implemented method)
+    '''4.> Gaussian Smoothing (self-implemented method function for Gaussian smoothing)
     4a.> https://matthew-brett.github.io/teaching/smoothing_intro.html '''
 
     rhoz_gsmooth = gsmooth(x_vals=photoz_ch, y_vals=rho_z, sigmaa=0.1)
