@@ -24,7 +24,7 @@ The potential map obtained from the aforementioned convergence map is shown belo
  Extract ```COSMOS2015_Laigle_v1.1.fits``` from ```COSMOS2015_Laigle_v1.1.fits.gz``` using:
  
  ```
- gunzip COSMOS2015_Laigle_v1.1.fits.gz
+ $ gunzip COSMOS2015_Laigle_v1.1.fits.gz
  ```
  
  Run the code using:
