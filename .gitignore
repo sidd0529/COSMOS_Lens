@@ -1,0 +1,14 @@
+# Compiled files #
+##################
+*.pyc
+*.so
+cosmos_cy.c
+
+
+# Ignored folders #
+###################
+COSMOS/
+build/
+TxtOutput/
+Plots/
+
