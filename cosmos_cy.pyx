@@ -207,14 +207,11 @@ def cosmo_cythonize():
     rhoz_gsmooth = gsmooth(x_vals=photoz_ch, y_vals=rho_z, sigmaa=0.1)
 
 
-    """ Plotting parameters """
+    ''' Plotting parameters '''
     AxisTextSize = 16
     AxisTickSize = 18
     LabelSz = 14
     mk_size = 2.5
-
-    min_clim = -3*(10**(-8))
-    max_clim = 10.3*(10**(-8))
     mk_scale = 0.8
 
 
@@ -222,9 +219,11 @@ def cosmo_cythonize():
     plt.figure(1)
     plt.plot(photoz_ch, rho_z/gal_num, marker='o', ls=' ', markersize=mk_size, color='r', zorder='10', label='COSMOS data')
     #plt.plot(photoz_ch, rhoz_NWpred, marker='o', ls=' ', markersize=mk_size, color='g', zorder='9', label='nonparametric')
-    plt.plot(photoz_ch, rhoz_gauss/gal_num, marker='o', ls=' ', markersize=mk_size, color='g', zorder='111', label=r'${\rm Gaussian \ filter} \ (\sigma = 1)$')
+    #plt.plot(photoz_ch, rhoz_gauss/gal_num, marker='o', ls=' ', markersize=mk_size, color='g', zorder='111', label=r'${\rm Gaussian \ filter} \ (\sigma = 1)$')
     #plt.plot(photoz_ch, rhoz_savitzky, marker='o', ls=' ', markersize=mk_size, color='k', zorder='12', label='savitzky_golay')
-    plt.plot(photoz_ch, rhoz_gsmooth/gal_num, marker='o', ls=' ', markersize=mk_size, color='b', zorder='111', label=r'${\rm Gaussian \ smooth \ (Sidd)} \ (\sigma = 0.1)$')
+    
+    ''' Smoothing through a self made Gaussian smoothing filter (Sidd) '''
+    plt.plot(photoz_ch, rhoz_gsmooth/gal_num, marker='o', ls=' ', markersize=mk_size, color='b', zorder='111', label=r'${\rm Gaussian \ filter} \ (\sigma = 0.1)$')
 
     plt.axvline(x=redshift_source, ls='--', color='k')
     plt.annotate(r'${\rm Mean \ Clamato \ pixel}$', xy=(redshift_source, 0.026), xytext=(3.0, 0.031), fontsize=12\
@@ -334,11 +333,11 @@ def cosmo_cythonize():
 
 
     #----------------------------- Plot Convergence Field (Kappa) ----------------------------------------------
-    plotlim = 'n'
+    plotlim = 'y'
 
-    if plotlim=='y':
-        min_clim = -1.3579/np.power(10,7)
-        max_clim = -1.3575/np.power(10,7)
+    ''' Plotting parameters '''
+    min_clim = np.min(Kappa)
+    max_clim = np.max(Kappa)    
 
     mark_zlim = np.where( photoz_gal<redshift_source )[0]  #find indices where photoz_gal lies before the backlight source plane.
 
@@ -494,13 +493,10 @@ def cosmo_cythonize():
     phi = np.loadtxt( TxtDir+'potential_COSMOS.txt' )
 
 
-    ''' Plot 2D Convergence potential (phi) '''    
+    ''' Plot the 2D Potential (phi) matrix. '''    
     plt.figure(5)
     pcolor(np.transpose(phi))
     plt.colorbar()
-
-    if plotlim=='y':
-        plt.clim( min_clim , max_clim )
 
     #plt.xlim([0,128])
     #plt.ylim([0,128])
