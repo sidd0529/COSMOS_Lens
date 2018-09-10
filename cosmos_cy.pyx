@@ -380,7 +380,7 @@ def cosmo_cythonize():
     plt.tick_params(labelsize=AxisTickSize)
     plt.xlabel(r'${\rm RA \ (in \ degrees)}$', fontsize=AxisTextSize+4)
     plt.ylabel(r'${\rm Dec \ (in \ degrees)}$', fontsize=AxisTextSize+4)
-    plt.title(r'${\rm Convergence,} \ \kappa$', fontsize=AxisTextSize+4)
+    plt.title(r'${\rm Convergence,} \ \kappa \ {\rm (COSMOS)}$', fontsize=AxisTextSize+3)
 
     plt.tight_layout()
     plt.savefig(PlotDir + 'COSMOS_Convergence.png')
@@ -408,7 +408,7 @@ def cosmo_cythonize():
         plt.tick_params(labelsize=AxisTickSize)
         plt.xlabel(r'${\rm RA \ (in \ degrees)}$', fontsize=AxisTextSize+4)
         plt.ylabel(r'${\rm Dec \ (in \ degrees)}$', fontsize=AxisTextSize+4)
-        plt.title(r'${\rm Convergence,} \ \kappa$', fontsize=AxisTextSize+4)
+        plt.title(r'${\rm Convergence,} \ \kappa \ {\rm (COSMOS)}$', fontsize=AxisTextSize+3)
 
         plt.tight_layout()
         #plt.savefig( PlotDir + 'COSMOS_Convergence_GaussianSmoothed.png')
@@ -462,7 +462,7 @@ def cosmo_cythonize():
     plt.tick_params(labelsize=AxisTickSize)
     plt.xlabel(r'${\rm RA \ (in \ degrees)}$', fontsize=AxisTextSize+4)
     plt.ylabel(r'${\rm Dec \ (in \ degrees)}$', fontsize=AxisTextSize+4)
-    plt.title(r'${\rm Convergence,} \ \kappa$', fontsize=AxisTextSize+4)
+    plt.title(r'${\rm Convergence,} \ \kappa \ {\rm (COSMOS)}$', fontsize=AxisTextSize+3)
 
     plt.tight_layout()
     plt.savefig(PlotDir + 'COSMOS_Convergence_holesfilled.png')
@@ -507,7 +507,7 @@ def cosmo_cythonize():
     plt.tick_params(labelsize=AxisTickSize)
     plt.xlabel(r'${\rm RA \ (in \ degrees)}$', fontsize=AxisTextSize+4)
     plt.ylabel(r'${\rm Dec \ (in \ degrees)}$', fontsize=AxisTextSize+4)
-    plt.title(r'${\rm Potential,} \ \phi$', fontsize=AxisTextSize+4)
+    plt.title(r'${\rm Potential,} \ \phi \ {\rm (COSMOS)}$', fontsize=AxisTextSize+3)
 
     plt.tight_layout()
     plt.savefig(PlotDir + 'COSMOS_Potential.png')
