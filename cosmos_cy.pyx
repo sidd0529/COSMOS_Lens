@@ -126,7 +126,7 @@ def cosmo_cythonize():
 
     ''' RA range (max-min) is slighly higher than Dec range (max-min). This is a problem since we have 128 cells in both RA and Dec,
     and we want cell size to be same in both RA and Dec. So we throw away a few galaxies beyond a certain RA cutoff. This makes sure
-    that the dataset cell dimension of both RA and Dec are same.'''
+    that the dataset cell dimensions of both RA and Dec are the same.'''
     RA_maxcut = np.min(RA_gal_init) + ( np.max(Dec_gal_init)-np.min(Dec_gal_init) ) + 0.2/np.power(10,6) 
     mark_equal_ang_binsize = np.where( RA_gal_init<RA_maxcut )[0] 
 
