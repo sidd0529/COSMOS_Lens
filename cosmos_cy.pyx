@@ -151,8 +151,8 @@ def cosmo_cythonize():
 
     ''' We want the span of RA and Dec to be the same. At a later stage in this code, we will see that both RA and Dec will be divided
     into equal number of bins. And, we want the bin sizes of RA and Dec to be the same.'''
-    print 'max-min span of RA is: ', np.max(RA_gal)-np.min(RA_gal) 
-    print 'max-min span of Dec is: ', np.max(Dec_gal)-np.min(Dec_gal)
+    print 'max-min span of RA is: ', np.max(RA_gal)-np.min(RA_gal) , ' degrees.' 
+    print 'max-min span of Dec is: ', np.max(Dec_gal)-np.min(Dec_gal), ' degrees.'
 
     #----------------------------- Choose parameters -----------------------------------------------------------
     cosmo = {'omega_M_0': 0.3, 'omega_lambda_0': 0.7, 'omega_k_0': 0.0, 'h':0.7, 'H_0' : 70}   #Cosmology (L'Aigle++)
@@ -476,8 +476,8 @@ def cosmo_cythonize():
     cdef np.ndarray[np.double_t, ndim=1] RA_bin_mid = np.zeros( (Kappa.shape[1],), dtype=np.float64)
     cdef np.ndarray[np.double_t, ndim=2] phi = np.zeros( [Kappa.shape[0], Kappa.shape[1]], dtype=np.float64)
 
-    Dec_bin_mid = (Dec_bin[1:] + Dec_bin[:-1]) / 2     #midpoints of Dec_bin
-    RA_bin_mid = (RA_bin[1:] + RA_bin[:-1]) / 2        #midpoints of RA_bin
+    Dec_bin_mid = np.deg2rad( ( (Dec_bin[1:] + Dec_bin[:-1])/2 ) )     #midpoints of Dec_bin
+    RA_bin_mid = np.deg2rad( ( (RA_bin[1:] + RA_bin[:-1])/2 ) )        #midpoints of RA_bin
 
     softening = 0
 
