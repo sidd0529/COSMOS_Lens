@@ -1,6 +1,9 @@
 #include "potential.h"
 
 
+#define PI 3.14159265358979323846
+
+
 void pot_field(double* Kap, double* pott, double* Dec_bin_mid, double* RA_bin_mid, double softening, int Dec_len, int RA_len)
 {
 	int posn, xcell, ycell, xiter, yiter;
@@ -48,8 +51,8 @@ void pot_field(double* Kap, double* pott, double* Dec_bin_mid, double* RA_bin_mi
 						Dec_iter = Dec_mid[xiter];
 						RA_iter = RA_mid[yiter];
 
-						r = sqrt( pow( (Dec_cell-Dec_iter) , 2 ) + pow( (RA_cell-RA_iter) , 2 ) ) + softening;
-						val = (2*convergence[xiter][yiter])/r;
+						r = sqrt( pow( (Dec_cell-Dec_iter) , 2 ) + pow( (RA_cell-RA_iter) , 2 ) );
+						val = (1/PI) * convergence[xiter][yiter] * log(r);
 
 						posn = xcell*RA_len + ycell;
 						*( pott+posn ) += val;
