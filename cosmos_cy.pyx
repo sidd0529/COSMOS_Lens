@@ -476,8 +476,8 @@ def cosmo_cythonize():
     cdef np.ndarray[np.double_t, ndim=1] RA_bin_mid = np.zeros( (Kappa.shape[1],), dtype=np.float64)
     cdef np.ndarray[np.double_t, ndim=2] phi = np.zeros( [Kappa.shape[0], Kappa.shape[1]], dtype=np.float64)
 
-    Dec_bin_mid = np.deg2rad( ( (Dec_bin[1:] + Dec_bin[:-1])/2 ) )     #midpoints of Dec_bin
-    RA_bin_mid = np.deg2rad( ( (RA_bin[1:] + RA_bin[:-1])/2 ) )        #midpoints of RA_bin
+    Dec_bin_mid = np.deg2rad( ( (Dec_bin[1:] + Dec_bin[:-1])/2 ) )     #midpoints of Dec_bin (in radians)
+    RA_bin_mid = np.deg2rad( ( (RA_bin[1:] + RA_bin[:-1])/2 ) )        #midpoints of RA_bin (in radians)
 
     softening = 0
 
