@@ -13,12 +13,14 @@ from Cython.Distutils import build_ext
 ''' Delete files: 'cosmos_cy.c' and 'cosmos_cy.so'
 https://www.w3schools.com/python/python_file_remove.asp '''
 if os.path.exists("cosmos_cy.c"):
+    print "Deleting old cosmos_cy.c."
     os.remove("cosmos_cy.c")
 else:
     print "cosmos_cy.c file does not exist."
 
 
 if os.path.exists("cosmos_cy.so"):
+    print "Deleting old cosmos_cy.so."    
     os.remove("cosmos_cy.so")
 else:
     print "cosmos_cy.so file does not exist."
@@ -30,10 +32,11 @@ https://stackoverflow.com/questions/8933237/how-to-find-if-directory-exists-in-p
 ''' Remove 'build' folder:
  https://stackoverflow.com/questions/303200/how-do-i-remove-delete-a-folder-that-is-not-empty-with-python '''
 
-if( not os.path.isdir("build") ): 
+if( not os.path.isdir("build") ):
     print "build directory does not exist." 
 
 if( os.path.isdir("build") ): 
+    print "Deleting old build directory."         
     shutil.rmtree('build') 
 
 
